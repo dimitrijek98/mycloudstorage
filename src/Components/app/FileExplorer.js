@@ -49,9 +49,9 @@ class FileExplorer extends Component {
         this.setState({files, filteredFiles:files});
         this.Crypto = new Crypto();
         let coded = this.Crypto.codeWithSubstitution(lorem);
-        console.log(coded);
+        // console.log(coded);
         let decoded = this.Crypto.decodeSubstitution(coded);
-        console.log(decoded);
+        // console.log(decoded);
     }
 
 
