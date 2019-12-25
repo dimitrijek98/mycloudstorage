@@ -9,7 +9,7 @@ class FilesGrid extends Component {
                 <div className='row align-items-center'>
                     {this.props.files && this.props.files.map((file, index) => {
                         return <div className='col-3 pb-5 single-file-wrapper' key={index} >
-                            <SingleFile name={file.name}/>
+                            <SingleFile showFileDetails={this.props.showFileDetails} name={file.name}/>
                         </div>
                     })}
                 </div>

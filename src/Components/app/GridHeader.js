@@ -10,7 +10,7 @@ class GridHeader extends Component {
                     <input className="form-control mr-sm-2 search " type="search"
                            placeholder="Search for file..."
                            aria-label="Search"
-                           onChange={this.filterFiles}/>
+                           onChange={this.props.filterFiles}/>
                     <button className="btn avatar-button my-2 my-sm-0 ml-2"><i className="fas fa-user"></i>
                     </button>
                 </form>

@@ -5,7 +5,7 @@ export const substitutionKey = {
     m: 'd', n: 'f', o: 'g', p: 'h',
     q: 'z', r: 'x', s: 'c', t: 'v',
     u: 'b', v: 'n', w: 'm', x: 'j',
-    y: 'k', z: 'l',
+    y: 'k', z: 'l', ' ':' ',
     A: 'Z', B: 'A', C: 'Q', D: 'X',
     E: 'D', F: 'E', G: 'W', H: 'S',
     I: 'C', J: 'V', K: 'F', L: 'R',

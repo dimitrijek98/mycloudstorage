@@ -3,12 +3,11 @@ import {substitutionKey} from "./config";
 export default class Crypto {
 
   codeWithSubstitution = (input) =>{
-      return input.split('').map((v) => {
-          if(substitutionKey.hasOwnProperty(v))
-            return substitutionKey[v];
-          else
-              return v;
-      }).join('');
+      let cryptedInput = '';
+     for(let inputLength = 0; inputLength<input.length; inputLength++){
+          cryptedInput = cryptedInput.concat(substitutionKey[input.charAt(inputLength)] || input.charAt(inputLength));
+      }
+      return cryptedInput;
   };
 
   decodeSubstitution = (coded) => {
@@ -16,11 +15,10 @@ export default class Crypto {
       Object.keys(substitutionKey).map(key => {
           newKey[substitutionKey[key]] = key;
       });
-      return coded.split('').map((v) => {
-          if(newKey.hasOwnProperty(v))
-              return newKey[v];
-          else
-              return v;
-      }).join('');
+      let decoded = '';
+      for(let inputLength = 0; inputLength<coded.length; inputLength++){
+          decoded = decoded.concat(newKey[coded.charAt(inputLength)] || coded.charAt(inputLength) );
+      }
+      return decoded
   }
 }
