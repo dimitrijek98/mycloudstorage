@@ -15,6 +15,7 @@ class Controller extends Component {
             hidePassword: true,
             selectedFile: null,
             loading: false,
+            algorithm: 'Simple Substitution',
         };
         this.crypto = new Crypto();
         this.FileService = new FileService();
@@ -27,6 +28,7 @@ class Controller extends Component {
 
     chooseAlgorithm = (e) => {
         console.log(e.target.value);
+        this.setState({algorithm: e.target.value});
     };
 
     submitFile() {
@@ -40,7 +42,7 @@ class Controller extends Component {
                     .then(response => {
                         this.setState({loading: false});
                         this.props.getUserFiles(this.props.user.id);
-                        this.FileService.updateLocalFile(this.props.user.id, this.state.selectedFile.name,'simpleSubstitution')
+                        this.FileService.updateLocalFile(this.props.user.id, this.state.selectedFile.name, 'simpleSubstitution')
                             .then()
                             .catch(err => {
                                 console.log(err);
@@ -81,13 +83,13 @@ class Controller extends Component {
                         <div className='pb-5'>
                             <button className="btn upload-button mb-2"
                                     onClick={() => this.props.getFile(this.props.fileClicked)}>{this.props.loading ?
-                                <Spinner animation="border"/> : 'Encrypt'}</button>
+                                <Spinner animation="border"/> : 'Decrypt'}</button>
                             {this.props.downloadFile && <a href={this.getDownloadLink()}
                                                            download={this.props.fileName}
                             >
                                 <button className="btn upload-button">
                                     {this.props.loading ?
-                                    <Spinner animation="border"/> : 'Download'}</button>
+                                        <Spinner animation="border"/> : 'Download'}</button>
                             </a>}
                         </div>
                         <div className='pt-5 pb-5'>
@@ -108,28 +110,35 @@ class Controller extends Component {
                             <option>Knapsack</option>
                             <option>SH2</option>
                         </select>
-
-
-                        <label className="input-title">Input crypto key</label>
-                        <div className="input-group">
-                            <input type={this.state.hidePassword ? "password" : "text"} className="form-control"
-                                   placeholder='Crypto key'/>
-                            <div className="input-group-append">
-                                <button className="btn btn-white" onClick={this.showAndHide} type="button"
-                                        id="button-addon2">
-                                    {this.state.hidePassword ?
-                                        <i className="fas fa-eye"></i>
-                                        :
-                                        <i className="fas fa-eye-slash"></i>
-                                    }
-                                </button>
+                        {this.state.algorithm !== 'Simple Substitution' &&
+                        <label className='warning'>This feature is planed to be added later on. Our team is working to
+                            bring you new staff!</label>
+                        }
+                        {this.state.algorithm !== 'Simple Substitution' &&
+                        <React.Fragment>
+                            <label className="input-title">Input crypto key</label>
+                            <div className="input-group">
+                                <input type={this.state.hidePassword ? "password" : "text"} className="form-control"
+                                       placeholder='Crypto key'/>
+                                <div className="input-group-append">
+                                    <button className="btn btn-white" onClick={this.showAndHide} type="button"
+                                            id="button-addon2">
+                                        {this.state.hidePassword ?
+                                            <i className="fas fa-eye"></i>
+                                            :
+                                            <i className="fas fa-eye-slash"></i>
+                                        }
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex-row align-content-start mb-5">
-                            <i className="fas fa-info-circle text-light mr-1"></i>
-                            <small className='text-light text-left'>This key will be used to encrypt your file and
-                                will be stored in your config file so you don't have to remember it.</small>
-                        </div>
+                            <div className="flex-row align-content-start mb-5">
+                                <i className="fas fa-info-circle text-light mr-1"></i>
+                                <small className='text-light text-left'>This key will be used to encrypt your file and
+                                    will be stored in your config file so you don't have to remember it.</small>
+                            </div>
+                        </React.Fragment>
+                        }
+
                         {this.state.selectedFile &&
                         <button className="btn upload-button " disabled={this.state.loading}
                                 onClick={() => this.submitFile()}>{this.state.loading ?

@@ -14,7 +14,6 @@ export const substitutionKey = {
     U: 'O', V: 'I', W: 'K', X: 'M',
     Y: 'L', Z: 'P'
 };
-
 export const lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
     " Atque consequuntur dolorem et explicabo itaque libero maiores minima modi necessitatibus numquam odit, " +
     "quam quasi quia quis reiciendis rerum temporibus, ullam voluptatibus." +

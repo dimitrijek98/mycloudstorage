@@ -51,7 +51,7 @@ class Login extends Component {
                                     <input type="password" name='password' onChange={this.handleInput} className="form-control"/>
                                 </div>
 
-                                <button onClick={this.login} type="submit" className="btn btn-light">Create</button>
+                                <button onClick={this.login} type="submit" className="btn btn-light">Let's go!</button>
                             </form>
                         </div>
                     </div>

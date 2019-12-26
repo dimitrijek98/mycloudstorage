@@ -149,6 +149,10 @@
   color: #3359BB;
   font-weight: bold;
 }
+.warning{
+  margin-top: -25px;
+  color: rgba(255, 94, 106, 0.85);
+}
 
 .input-title{
   font-size: 20px;
