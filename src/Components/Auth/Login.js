@@ -56,7 +56,7 @@ class Login extends Component {
                         </div>
                     </div>
                     <div className='col-md-8 pl-5 '>
-                        <p className='login-title mb-5 pb-5'>Never worry about privacy of your files again!</p>
+                        <p className='login-title-second mb-5 pl-5'>Never worry about privacy of your files again!</p>
                         <img src={require('../../Assets/Images/security.png')} width='400px' height='350px'
                              alt={'security'}/>
                     </div>

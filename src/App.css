@@ -64,12 +64,19 @@
 .login-title{
   color: white;
   font-size: 45px;
+  font-weight: bold;
+}
+
+.login-title-second{
+  color: white;
+  font-size: 35px;
 }
 
 .create-acc{
   color: white;
-  font-size: 25px;
-  padding-bottom: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 30px;
 }
 
 .login-header{
